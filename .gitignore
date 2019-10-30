@@ -1,6 +1,10 @@
 \#*\#
 auto-save-list
 
-__pyclean__
+__pycache__
+build
+dist
+*.egg-info
+
 .config 
 config.yaml
