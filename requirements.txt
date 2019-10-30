@@ -1,0 +1,5 @@
+click
+pyudev
+pymediainfo
+requests
+requests_cache~=0.5

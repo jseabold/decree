@@ -1,0 +1,4 @@
+DEVICE_NAME: /dev/sr0
+MOUNT_POINT: /media/cdrom
+RAW_PATH: /path/to/dir/raw
+FINAL_PATH: /path/to/dir
