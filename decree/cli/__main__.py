@@ -1,4 +1,7 @@
+import json
 import logging
+import logging.config
+import os
 
 import click
 
@@ -17,8 +20,16 @@ except FileNotFoundError:
 
 
 @click.group()
-def cli():
-    pass
+@click.option('--log', is_flag=True,
+              help=('Configures logging through a log file \'logging.json\' '
+                    'if found in the current directory.'), default=True)
+def cli(log):
+    if log and not os.path.exists('logging.json'):
+        print("Logging configuration not found in logging.json")
+    elif log:
+        with open('logging.json') as log:
+            log_config = json.load(log)
+        logging.config.dictConfig(log_config)
 
 
 @click.command()
