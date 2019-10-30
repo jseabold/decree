@@ -18,7 +18,7 @@ This is only known to work on Linux. You'll need working versions of [makemkvcon
 ## Installation
 
 ```bash
-git clone git@github.com:decree/decree.git
+git clone git@github.com:jseabold/decree.git
 cd decree
 pip install -r requirements.txt
 pip install .
