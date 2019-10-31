@@ -41,7 +41,7 @@ def run_and_log_subprocess(cmd):
     )
 
     for line in iter(p.stdout.readline, b''):
-        logger.info(line.decode('utf-8'))
+        logger.info(line.decode('utf-8').strip())
     return p
 
 
