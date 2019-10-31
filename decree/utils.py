@@ -34,14 +34,17 @@ def parse_config(config='config.yaml'):
 def run_and_log_subprocess(cmd):
     command = ' '.join(cmd)
     logger.info(f'Running command: \'{command}\'')
+    # use universal newline because these subprocesses rely on the carriage
+    # return to make progress bars
     p = subprocess.Popen(
         cmd,
         stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT
+        stderr=subprocess.STDOUT,
+        universal_newlines=True,
     )
 
-    for line in iter(p.stdout.readline, b''):
-        logger.info(line.decode('utf-8').strip())
+    for line in iter(p.stdout.readline, ''):
+        logger.info(line.strip())
     return p
 
 
