@@ -88,7 +88,7 @@ def get_audio_channels(tracks, general_track):
     audio_channels = f''.join(f'{_.channel_s}' for _ in tracks if _.channel_s)
     channel = int(re.sub('[^0-9].*$', '', audio_channels))
     if channel > 2:
-        channel = ['--aencoder', 'ca_aac,copy:ac3']
+        channel = ['--aencoder', 'av_aac,copy:ac3']
     elif general_track.audio_format_list.split(' / ')[0] == 'AAC':
         channel = ['--aencoder', 'copy:aac']
     else:
@@ -131,11 +131,10 @@ def transcode(final_path, input_folder, title, year, now=None,
 
     handbrake_options = [
         '--markers',
-        '--large-file',
         '--encoder', 'x264',
         '--encopts', 'vbv-maxrate=25000:vbv-bufsize=31250:ratetol=inf',
         '--crop', '0:0:0:0',
-        '--strict-anamorphic'
+        '--auto-anamorphic'
     ]
     bitrate, frame_rate, audio_channels = get_media_info(input_file)
 
