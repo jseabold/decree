@@ -3,3 +3,4 @@ pyudev
 pymediainfo
 requests
 requests_cache~=0.5
+xmltodict
